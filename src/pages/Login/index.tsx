@@ -37,9 +37,9 @@ const Login: React.FC = () => {
     setErrors({});
 
     try {
-      const data = await login(email, password);
+      const response = await login(email, password);
 
-      console.log("data :>> ", data);
+      localStorage.setItem("accessToken", response?.data?.data?.accessToken);
 
       toast({
         title: "Login successful",
