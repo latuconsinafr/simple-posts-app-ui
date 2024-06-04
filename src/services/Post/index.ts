@@ -44,6 +44,16 @@ export const fetchPost = async (id: number) => {
   }
 };
 
+export const fetchPostComments = async (id: number) => {
+  try {
+    const response = await axiosInstance.get(`/${id}/comments`);
+
+    return response?.data?.data;
+  } catch (error: any) {
+    throw error;
+  }
+}
+
 export const updatePost = async (
   id: number,
   post: Omit<Post, "id" | "created_at" | "updated_at">

@@ -69,7 +69,6 @@ const PostForm: React.FC = () => {
 
       navigate("/dashboard/posts");
     } catch (error: any) {
-      console.log("error :>> ", error.response);
       if (
         error.response &&
         error.response.data &&

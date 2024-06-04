@@ -40,9 +40,7 @@ const Register: React.FC = () => {
     setErrors({});
 
     try {
-      const data = await register(name, email, password);
-
-      console.log("data :>> ", data);
+      await register(name, email, password);
 
       toast({
         title: "Registration successful",

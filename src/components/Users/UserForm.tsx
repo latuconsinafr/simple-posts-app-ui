@@ -85,7 +85,6 @@ const UserForm: React.FC = () => {
 
       navigate("/dashboard/users");
     } catch (error: any) {
-        console.log('error :>> ', error.response);
       if (
         error.response &&
         error.response.data &&

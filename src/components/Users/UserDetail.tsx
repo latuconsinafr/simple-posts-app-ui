@@ -40,10 +40,12 @@ const UserDetail: React.FC = () => {
           <strong>Roles:</strong> {user.roles.join(",")}
         </Text>
         <Text my={4}>
-          <strong>Created At:</strong> {user.created_at.toString()}
+          <strong>Created At:</strong>{" "}
+          {new Date(user.created_at).toLocaleString()}
         </Text>
         <Text my={4}>
-          <strong>Updated At:</strong> {user.updated_at.toString()}
+          <strong>Updated At:</strong>{" "}
+          {new Date(user.updated_at).toLocaleString()}
         </Text>
       </Box>
       <Box display="flex" justifyContent="flex-end" mb={4}>

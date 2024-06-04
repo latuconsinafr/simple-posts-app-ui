@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Box, Text, Heading, Button } from "@chakra-ui/react";
+import { Box, Text, Heading, Button, Divider } from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
 import { fetchPost } from "../../services/Post";
 import Post from "../../interfaces/Post";
+import CommentsSection from "./Comments/CommentSection";
 
 const PostDetail: React.FC = () => {
   const { id } = useParams();
@@ -37,12 +38,14 @@ const PostDetail: React.FC = () => {
           <strong>Content:</strong> {post.content}
         </Text>
         <Text my={4}>
-          <strong>Created At:</strong> {post.created_at.toString()}
+          <strong>Created At:</strong> {new Date(post.created_at).toLocaleString()}
         </Text>
         <Text my={4}>
-          <strong>Updated At:</strong> {post.updated_at.toString()}
+          <strong>Updated At:</strong> {new Date(post.updated_at).toLocaleString()}
         </Text>
       </Box>
+      <Divider my={8} />
+      <CommentsSection postId={post.id} />
       <Box display="flex" justifyContent="flex-end" mb={4}>
         <Button as={Link} to="/dashboard/posts" colorScheme="blue" size="sm">
           Back
